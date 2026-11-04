@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Study RPG - Xanh Da Trời</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        cyber: {
+                            900: '#070f1a',
+                            800: '#0f172a',
+                            700: '#1e293b',
+                            600: '#334155',
+                            accent: '#0ea5e9',
+                            glow: '#38bdf8',
+                            purple: '#8b5cf6',
+                            gold: '#f59e0b'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #070f1a; color: #f3f4f6; }
+        .cyber-card {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.7) 100%);
+            border: 1px solid rgba(14, 165, 233, 0.25);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            backdrop-filter: blur(8px);
+        }
+        .cyber-card-purple {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(45, 27, 105, 0.4) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+        .glow-text { text-shadow: 0 0 10px rgba(14, 165, 233, 0.6); }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #070f1a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #0ea5e9; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-sans pb-12">
+
+    <!-- Header Navigation -->
+    <header class="border-b border-gray-800 bg-cyber-800/80 sticky top-0 z-50 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-sky-500 to-cyber-purple flex items-center justify-center font-bold text-xl shadow-lg border border-sky-400/30">
+                        ⚔️
+                    </div>
+                    <span class="absolute -bottom-1 -right-1 bg-sky-500 text-black text-xs font-mono font-bold px-1.5 py-0.5 rounded-full" id="header-level">Lv.1</span>
+                </div>
+                <div>
+                    <div class="flex items-center space-x-2">
+                        <h1 class="font-bold text-lg text-white tracking-wide" id="header-username">Chiến Binh Học Tập</h1>
+                        <span class="text-xs bg-sky-500/20 text-sky-400 px-2 py-0.5 rounded border border-sky-500/30 font-mono" id="header-title">Tập Sự</span>
+                    </div>
+                    <div class="w-48 sm:w-64 bg-gray-700/60 rounded-full h-2.5 mt-1.5 overflow-hidden p-0.5 border border-gray-600">
+                        <div class="bg-gradient-to-r from-sky-500 to-cyan-300 h-full rounded-full transition-all duration-500" id="header-exp-bar" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-3">
+                <div class="flex items-center space-x-1.5 bg-cyber-900/80 px-3 py-1.5 rounded-xl border border-amber-500/30">
+                    <i class="fa-solid fa-coins text-amber-400"></i>
+                    <span class="font-mono font-bold text-amber-300 text-sm" id="header-coins">0</span>
+                </div>
+                <div class="flex items-center space-x-1.5 bg-cyber-900/80 px-3 py-
